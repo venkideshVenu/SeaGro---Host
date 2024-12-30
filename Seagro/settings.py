@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-(s1oj^u3^&m@awj*r_x_60=1ojw&*6waj=uu#misq4&uz7pvpp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -170,10 +170,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+
 
 CART_SESSION_SLUG = 'cart'
 GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
@@ -200,3 +197,8 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 # Contact form settings
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 CONTACT_EMAIL = os.getenv('CONTACT_EMAIL')
+
+
+
+STATICFILES_DIRS = [BASE_DIR/'static',]
+STATIC_ROOT = BASE_DIR/'staticfiles'
